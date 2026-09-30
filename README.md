@@ -78,8 +78,9 @@ image: meuProjeto,
 
 ## Intro (tela de carregamento)
 
-- Roda na primeira entrada da sessão (`sessionStorage`), dura ~1,75s e pode ser pulada com o botão
-  **Pular**, com **Esc** ou clicando fora.
+- Roda na primeira entrada da sessão (`sessionStorage`), dura ~4,4s (katana atravessando o fundo do
+  card, com a pedra de amolar passando pelo fio) e pode ser pulada com o botão **Pular**, com **Esc**
+  ou clicando fora do card.
 - Quem usa `prefers-reduced-motion` não vê animação: o conteúdo aparece direto.
 - Tempos em `src/hooks/useIntroExperience.ts`; coreografia (katana afiando e corte) em
   `src/styles/katana.css`. Toda a animação é CSS puro — não há biblioteca de animação no projeto.
