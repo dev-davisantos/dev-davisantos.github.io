@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>dev.davisantos — Davi Santos | Software Engineering</title>
+    <meta
+      name="description"
+      content="Davi Santos (dev.davisantos) — desenvolvedor de interfaces web: sites, painéis e telas que consomem APIs. React, TypeScript e consumo de APIs REST."
+    />
+    <meta name="author" content="Davi Santos" />
+
+    <!-- Open Graph / redes sociais -->
+    <!-- TODO: quando o domínio for definido, trocar og:image e og:url por URLs absolutas -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="dev.davisantos" />
+    <meta property="og:title" content="dev.davisantos — Davi Santos | Software Engineering" />
+    <meta
+      property="og:description"
+      content="Desenvolvedor de interfaces web: sites, painéis e telas que consomem APIs. React, TypeScript e APIs REST."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Tema: dark é o padrão. Este script roda antes do CSS para não piscar a cor errada. -->
+    <meta name="theme-color" content="#081A2D" />
+    <script>
+      ;(function () {
+        try {
+          var saved = localStorage.getItem('dd:theme')
+          if (saved === 'light' || saved === 'dark') {
+            document.documentElement.dataset.theme = saved
+          }
+        } catch (error) {
+          /* localStorage bloqueado: mantém o dark padrão */
+        }
+      })()
+    </script>
+    <style>
+      /* Evita fundo branco antes do bundle de CSS chegar. */
+      html[data-theme='dark'] {
+        background: #081a2d;
+      }
+      html[data-theme='light'] {
+        background: #f5f6f7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
