@@ -61,6 +61,16 @@ body {
 }
 
 /*
+ * Enquanto a intro (katana) está na tela, as entradas de conteúdo ficam congeladas
+ * no primeiro quadro. Quando a intro sai, a classe `is-intro` sai do <html> e a
+ * animação roda junto com a revelação da página — em vez de acontecer escondida.
+ */
+html.is-intro .rise,
+html.is-intro .fade-in {
+  animation-play-state: paused;
+}
+
+/*
  * Usuário que pediu menos movimento: nada se move, mas o estado final das
  * animações continua sendo aplicado (por causa do `both`).
  */
