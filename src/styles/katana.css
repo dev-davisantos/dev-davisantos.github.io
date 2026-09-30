@@ -6,6 +6,9 @@
  * tudo fica em sincronia sem delays encadeados) e a saída é disparada pelo
  * atributo data-leaving="true", colocado pelo hook useIntroExperience.
  *
+ * ATENÇÃO: os 3700ms daqui e o ENTRANCE_MS em src/hooks/useIntroExperience.ts
+ * são o mesmo tempo — se mudar um, mude o outro.
+ *
  * Só transform/opacity/clip-path animam — nada que force layout a cada quadro.
  */
 

@@ -4,10 +4,13 @@ import { usePrefersReducedMotion } from './usePrefersReducedMotion'
 /** Marca na sessão: a intro completa roda só na primeira entrada. */
 const SEEN_KEY = 'dd:intro'
 
-/** Duração da coreografia de entrada (inclui as passadas de afiação). */
+/**
+ * Duração da coreografia de entrada (inclui as passadas de afiação).
+ * Precisa casar com a duração das animações em src/styles/katana.css.
+ */
 const ENTRANCE_MS = 3700
 
-/** Duração da saída (painéis deslizando + fade do card). */
+/** Duração da saída (painéis deslizando + fade do card), igual ao transition em katana.css. */
 const EXIT_MS = 700
 
 type IntroState = 'showing' | 'leaving' | 'done'
