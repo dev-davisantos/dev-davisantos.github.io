@@ -14,11 +14,11 @@ export function ContactSection() {
           <div className="rounded-sm border border-line bg-surface p-8 sm:p-12 clip-corner-br">
             <p className="font-mono text-xs tracking-[0.2em] text-accent-text uppercase">contato</p>
             <h2 className="mt-4 max-w-2xl text-2xl font-semibold text-text sm:text-3xl">
-              Tem uma interface para construir ou ajustar?
+              Tem um sistema para construir ou melhorar?
             </h2>
             <p className="mt-4 max-w-prose text-sm leading-relaxed text-muted sm:text-base">
-              Me conta o objetivo da tela, se já existe layout e se a API está pronta. Se preferir,
-              começa por e-mail — respondo por lá mesmo.
+              Me conta o objetivo do sistema, se já existe banco ou API e o que precisa funcionar
+              primeiro. Se preferir, começa por e-mail — respondo por lá mesmo.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">

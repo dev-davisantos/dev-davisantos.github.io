@@ -1,4 +1,10 @@
-export type TechnologyGroupId = 'frontend' | 'backend' | 'tools' | 'learning' | 'next'
+export type TechnologyGroupId =
+  | 'backend'
+  | 'frontend'
+  | 'dados'
+  | 'ferramentas'
+  | 'learning'
+  | 'next'
 
 export interface TechnologyGroup {
   id: TechnologyGroupId

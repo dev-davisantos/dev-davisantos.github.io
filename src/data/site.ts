@@ -10,6 +10,6 @@ export const site = {
   name: 'dev.davisantos',
   title: 'dev.davisantos — Davi Santos | Software Engineering',
   description:
-    'Davi Santos (dev.davisantos) — desenvolvedor de interfaces web: sites, painéis e telas que consomem APIs. React, TypeScript e consumo de APIs REST.',
+    'Davi Santos (dev.davisantos) — desenvolvedor full-stack: APIs em Java e Spring Boot, banco de dados relacional e interfaces em React e TypeScript.',
   ogImage: '/og-image.png',
 } as const

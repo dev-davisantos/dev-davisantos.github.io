@@ -9,8 +9,8 @@ export function ProcessSection() {
         <Reveal>
           <SectionTitle
             eyebrow="como eu trabalho"
-            title="Do requisito à tela entregue"
-            description="Não é processo pomposo: é assim que eu construo, na ordem em que as coisas costumam acontecer."
+            title="Do domínio à tela"
+            description="Não é processo pomposo: é a ordem em que as coisas costumam acontecer em um sistema."
           />
         </Reveal>
 

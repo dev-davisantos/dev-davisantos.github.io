@@ -1,31 +1,36 @@
 import type { TechnologyGroup } from '../models/technology'
 
-/** Tecnologias exibidas na Home, separadas por contexto. */
+/** Tecnologias exibidas na Home, na ordem: backend primeiro. */
 export const technologyGroups: TechnologyGroup[] = [
   {
-    id: 'frontend',
-    title: 'Front-end',
-    items: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'HTML', 'CSS', 'Angular'],
-  },
-  {
     id: 'backend',
-    title: 'Backend e dados',
+    title: 'Backend',
     items: [
       'Java',
       'Spring Boot',
+      'Spring Web',
       'Spring Data JPA',
       'Spring Security',
-      'JWT',
-      'PostgreSQL',
-      'MySQL',
-      'H2',
-      'Maven',
+      'Hibernate',
+      'Lombok',
+      'MapStruct',
+      'SpringDoc OpenAPI',
     ],
   },
   {
-    id: 'tools',
+    id: 'frontend',
+    title: 'Front-end',
+    items: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Angular', 'HTML', 'CSS'],
+  },
+  {
+    id: 'dados',
+    title: 'Dados',
+    items: ['PostgreSQL', 'MySQL', 'H2', 'SQL'],
+  },
+  {
+    id: 'ferramentas',
     title: 'Ferramentas',
-    items: ['Git', 'Postman', 'IntelliJ IDEA', 'VS Code'],
+    items: ['Maven', 'Node.js', 'JWT', 'Git', 'Postman', 'IntelliJ IDEA', 'VS Code'],
   },
   {
     id: 'learning',

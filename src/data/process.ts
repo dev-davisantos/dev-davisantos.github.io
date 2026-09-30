@@ -4,32 +4,32 @@ import type { ProcessStep } from '../models/process'
 export const processSteps: ProcessStep[] = [
   {
     id: 'entender',
-    title: 'Entender o que a tela precisa fazer',
+    title: 'Entender o problema inteiro',
     description:
-      'Antes de escrever componente: qual o objetivo da página, quem usa, qual dado entra e qual sai. Se for consumir API, olho o contrato, o formato do retorno e o que acontece quando a requisição falha.',
+      'Antes de escolher ferramenta: o que o sistema precisa fazer, quem usa, que dado entra e que dado sai. Se é um pedido, o que é um pedido válido? Se é um chamado, quando ele pode ser fechado?',
   },
   {
-    id: 'organizar',
-    title: 'Organizar antes de codar',
+    id: 'modelar',
+    title: 'Modelar antes de codar',
     description:
-      'Estruturo as telas, o que se repete vira componente e o caminho do dado fica claro. Separo o que é layout, o que é dado e o que é estado de tela.',
+      'Domínio e banco primeiro: entidades, relacionamentos e regras. Depois o contrato da API e só então as telas. Isso evita retrabalho nas duas pontas.',
   },
   {
     id: 'construir',
-    title: 'Construir do simples para o complexo',
+    title: 'Construir em camadas',
     description:
-      'Primeiro a estrutura e o responsivo funcionando; depois os estados (carregando, vazio, erro); por último o acabamento visual e as microinterações.',
+      'Regra de negócio na entidade, service orquestrando, DTO definindo o contrato, controller expondo. Do backend para o front, cada parte com nome claro e responsabilidade única.',
   },
   {
-    id: 'integrar',
-    title: 'Integrar e testar em tela real',
+    id: 'testar',
+    title: 'Testar o caminho real',
     description:
-      'Conecto na API e testo no celular de verdade, com dado ruim, texto longo e resposta lenta. Ajusto contraste, foco, navegação por teclado e o que quebra em tela pequena.',
+      'Fluxo completo funcionando: do banco à tela, com dado ruim, texto longo, resposta lenta e erro tratado. Ajusto o que quebra em tela pequena e na navegação por teclado.',
   },
   {
     id: 'entregar',
     title: 'Entregar de um jeito que o próximo entenda',
     description:
-      'Componentes com nomes claros, conteúdo separado do layout, README dizendo como rodar e onde mexer, e histórico de commits descritivo.',
+      'Projeto organizado em camadas, README dizendo como rodar e onde mexer, e histórico de commits descritivo.',
   },
 ]

@@ -1,3 +1,9 @@
+export interface ProfileHighlight {
+  id: string
+  label: string
+  value: string
+}
+
 export interface Profile {
   /** Marca principal. */
   brand: string
@@ -15,4 +21,6 @@ export interface Profile {
   email: string
   githubUrl: string
   linkedinUrl: string
+  /** Linhas curtas exibidas no card do hero (linguagens, ferramentas...). */
+  highlights: ProfileHighlight[]
 }

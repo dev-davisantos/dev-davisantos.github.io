@@ -11,7 +11,7 @@ export function Contact() {
   usePageMeta({
     title: 'Contato — dev.davisantos',
     description:
-      'Fale com Davi Santos sobre sites, painéis e telas que consomem APIs. Contato por e-mail, LinkedIn ou GitHub.',
+      'Fale com Davi Santos sobre APIs, sistemas e as telas que consomem essas APIs. Contato por e-mail, LinkedIn ou GitHub.',
   })
 
   return (
@@ -21,9 +21,9 @@ export function Contact() {
         Me conta o que você precisa construir.
       </h1>
       <p className="mt-4 max-w-prose text-sm leading-relaxed text-muted sm:text-base">
-        Se for uma interface — site, painel ou telas que consomem uma API — descreve o objetivo da
-        tela, se já existe layout e se a API já está pronta. Com isso eu já consigo te responder o
-        que dá para fazer e por onde começar.
+        Se for um sistema, uma API ou as telas que consomem essa API: descreve o objetivo, se já
+        existe banco ou API e o que precisa funcionar primeiro. Com isso eu já consigo te responder
+        o que dá para fazer e por onde começar.
       </p>
 
       <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

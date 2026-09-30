@@ -4,16 +4,16 @@ import { profile } from '../../data/profile'
 
 const highlights = [
   {
-    id: 'apis',
-    text: 'Consumo de APIs REST: entendo contrato, formato de retorno, erro e autenticação porque também construí as APIs dos meus projetos.',
+    id: 'dominio',
+    text: 'Regra de negócio perto do domínio: a entidade valida o que faz sentido, o service só orquestra e o DTO define o contrato da API.',
   },
   {
-    id: 'dados',
-    text: 'Modelagem de dados: sei o que está por trás das telas — tabelas, relacionamentos e regra de negócio.',
+    id: 'api',
+    text: 'API pensada de ponta a ponta: contrato, validação, erro, autenticação com JWT e banco relacional — não só o caminho feliz do endpoint.',
   },
   {
     id: 'entrega',
-    text: 'Entrega organizada: componentes com nome claro, conteúdo separado do layout e README explicando como rodar.',
+    text: 'Entrega organizada: projeto em camadas, nomes claros, README dizendo como rodar e commits descritivos.',
   },
 ]
 
@@ -22,7 +22,11 @@ export function AboutSection() {
     <section className="border-b border-line py-16 sm:py-20">
       <div className="shell grid gap-12 lg:grid-cols-[1.3fr_1fr]">
         <Reveal>
-          <SectionTitle eyebrow="sobre" title="Interfaces com base técnica por trás" />
+          <SectionTitle
+            eyebrow="sobre"
+            title="Full-stack, com o backend como base"
+            description="Trabalho nas duas pontas, mas a base vem do lado do servidor — e é isso que muda a forma como eu construo a interface."
+          />
 
           <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted sm:text-base">
             {profile.about.map((paragraph) => (

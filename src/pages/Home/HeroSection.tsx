@@ -1,10 +1,12 @@
-import { ArrowRight, Code, MapPin, Server } from 'lucide-react'
+import { ArrowRight, Code, MapPin, Wrench } from 'lucide-react'
+import type { ComponentType } from 'react'
 import { LinkButton } from '../../components/Button'
 import { avatarUrl, profile } from '../../data/profile'
-import { technologyGroups } from '../../data/technologies'
 
-const frontend = technologyGroups.find((group) => group.id === 'frontend')
-const backend = technologyGroups.find((group) => group.id === 'backend')
+const highlightIcons: Record<string, ComponentType<{ className?: string }>> = {
+  linguagens: Code,
+  ferramentas: Wrench,
+}
 
 export function HeroSection() {
   return (
@@ -76,24 +78,28 @@ export function HeroSection() {
             <div className="flex items-start gap-3">
               <MapPin className="mt-0.5 size-4 shrink-0 text-accent-text" aria-hidden="true" />
               <div>
-                <dt className="sr-only">Localização</dt>
-                <dd className="text-muted">{profile.location}</dd>
+                <dt className="font-mono text-[11px] tracking-[0.12em] text-muted uppercase">
+                  Local
+                </dt>
+                <dd className="mt-0.5 text-text">{profile.location}</dd>
               </div>
             </div>
-            <div className="flex items-start gap-3">
-              <Code className="mt-0.5 size-4 shrink-0 text-accent-text" aria-hidden="true" />
-              <div>
-                <dt className="sr-only">Front-end</dt>
-                <dd className="text-muted">{frontend?.items.slice(0, 3).join(' · ')}</dd>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <Server className="mt-0.5 size-4 shrink-0 text-accent-text" aria-hidden="true" />
-              <div>
-                <dt className="sr-only">Backend e dados</dt>
-                <dd className="text-muted">{backend?.items.slice(0, 4).join(' · ')}</dd>
-              </div>
-            </div>
+
+            {profile.highlights.map((highlight) => {
+              const Icon = highlightIcons[highlight.id] ?? Code
+
+              return (
+                <div key={highlight.id} className="flex items-start gap-3">
+                  <Icon className="mt-0.5 size-4 shrink-0 text-accent-text" aria-hidden="true" />
+                  <div>
+                    <dt className="font-mono text-[11px] tracking-[0.12em] text-muted uppercase">
+                      {highlight.label}
+                    </dt>
+                    <dd className="mt-0.5 text-text">{highlight.value}</dd>
+                  </div>
+                </div>
+              )
+            })}
           </dl>
         </aside>
       </div>

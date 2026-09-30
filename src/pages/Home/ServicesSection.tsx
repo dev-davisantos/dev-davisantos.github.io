@@ -1,4 +1,4 @@
-import { LayoutTemplate, PanelsTopLeft, Plug, Wrench } from 'lucide-react'
+import { MonitorSmartphone, PanelsTopLeft, Server, ShieldCheck, Wrench } from 'lucide-react'
 import type { ComponentType } from 'react'
 import { Reveal } from '../../components/Reveal'
 import { SectionTitle } from '../../components/SectionTitle'
@@ -6,9 +6,10 @@ import { services } from '../../data/services'
 import type { ServiceId } from '../../models/service'
 
 const icons: Record<ServiceId, ComponentType<{ className?: string }>> = {
-  sites: LayoutTemplate,
-  painels: Plug,
+  apis: Server,
   sistemas: PanelsTopLeft,
+  seguranca: ShieldCheck,
+  interfaces: MonitorSmartphone,
   manutencao: Wrench,
 }
 
@@ -20,11 +21,11 @@ export function ServicesSection() {
           <SectionTitle
             eyebrow="serviços"
             title="O que eu faço"
-            description="Trabalho com interfaces: sites, painéis e telas que consomem API. Se o seu caso não estiver aqui, me conta que eu digo se consigo ajudar."
+            description="Do banco de dados à tela: API, modelagem, segurança e o front que consome tudo isso. Se o seu caso não estiver aqui, me conta que eu digo se consigo ajudar."
           />
         </Reveal>
 
-        <ul className="mt-12 grid gap-6 sm:grid-cols-2">
+        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
             const Icon = icons[service.id]
 
