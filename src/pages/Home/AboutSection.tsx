@@ -4,16 +4,16 @@ import { profile } from '../../data/profile'
 
 const highlights = [
   {
-    id: 'dominio',
-    text: 'Regra de negócio perto do domínio: a entidade valida o que faz sentido, o service só orquestra e o DTO define o contrato da API.',
+    id: 'responsavel',
+    text: 'Um responsável pelo sistema inteiro: do que acontece nos bastidores até o botão que a pessoa clica.',
   },
   {
-    id: 'api',
-    text: 'API pensada de ponta a ponta: contrato, validação, erro, autenticação com JWT e banco relacional — não só o caminho feliz do endpoint.',
+    id: 'acesso',
+    text: 'Acesso controlado: cada pessoa do time vê e faz exatamente o que precisa — e nada além disso.',
   },
   {
     id: 'entrega',
-    text: 'Entrega organizada: projeto em camadas, nomes claros, README dizendo como rodar e commits descritivos.',
+    text: 'Entrega organizada e explicada, para o sistema continuar funcionando e crescer sem retrabalho.',
   },
 ]
 
@@ -24,8 +24,8 @@ export function AboutSection() {
         <Reveal>
           <SectionTitle
             eyebrow="sobre"
-            title="Full-stack, com o backend como base"
-            description="Trabalho nas duas pontas, mas a base vem do lado do servidor — e é isso que muda a forma como eu construo a interface."
+            title="Eu construo o sistema inteiro"
+            description="Da parte que guarda e organiza as informações até as telas que a sua equipe usa todos os dias."
           />
 
           <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted sm:text-base">

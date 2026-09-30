@@ -14,9 +14,9 @@ export const profile: Profile = {
   intro:
     'Java e Spring Boot para as APIs, as regras de negócio e o banco relacional; React e TypeScript para as telas que consomem tudo isso.',
   about: [
-    'Trabalho com desenvolvimento full-stack. No backend é Java com Spring Boot: modelagem de dados, regras de negócio e API REST. No front-end, React e TypeScript nas telas que consomem essas APIs.',
-    'Gosto de manter a regra de negócio perto do domínio — a entidade valida o que faz sentido, o service só orquestra e o DTO define o contrato — e de organizar o projeto em camadas que qualquer pessoa entende depois.',
-    'Também cuido do que vem junto: autenticação com Spring Security e JWT, banco relacional (PostgreSQL e MySQL), versionamento com Git e, no momento, estudos de Docker para fechar o ciclo de entrega.',
+    'Eu construo sistemas completos. Cuido da parte que ninguém vê — onde as informações ficam guardadas e onde as regras do seu negócio são aplicadas — e também da parte que todo mundo vê: as telas que a sua equipe usa todos os dias.',
+    'Isso deixa o caminho mais curto: você trata com uma pessoa só, do começo ao fim, e não precisa coordenar equipes diferentes para o sistema funcionar.',
+    'Gosto de entregar algo que dá para manter depois: organizado, com explicação de como usar e pronto para crescer quando o seu negócio mudar.',
   ],
   location: 'São Paulo - SP',
   highlights: [
