@@ -14,8 +14,17 @@ interface LoadingScreenProps {
 export function LoadingScreen({ isLeaving, onSkip }: LoadingScreenProps) {
   return (
     <div className="katana-overlay" data-leaving={isLeaving ? 'true' : undefined}>
-      <div className="katana-panel katana-panel--top" aria-hidden="true" />
-      <div className="katana-panel katana-panel--bottom" aria-hidden="true" />
+      {/* Clicar nas áreas de fundo (fora do card) também pula a intro. */}
+      <div
+        className="katana-panel katana-panel--top"
+        aria-hidden="true"
+        onClick={onSkip}
+      />
+      <div
+        className="katana-panel katana-panel--bottom"
+        aria-hidden="true"
+        onClick={onSkip}
+      />
       <div className="katana-cut" aria-hidden="true" />
 
       <p className="sr-only" role="status">
