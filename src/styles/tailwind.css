@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+
+/*
+ * Tema: DARK é o padrão. Os valores base ficam em :root e o light apenas sobrescreve.
+ * Por isso os componentes usam classes semânticas (bg-bg, text-text, text-muted...) e
+ * não precisamos espalhar `dark:` pelo JSX.
+ * O `dark:` continua disponível para os raros ajustes estruturais.
+ */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+:root {
+  color-scheme: dark;
+
+  --bg: #081a2d;
+  --surface: #0e2947;
+  --surface-2: #163b5c;
+  --line: rgba(206, 205, 210, 0.14);
+  --text: #cecdd2;
+  --text-muted: #9a99a0;
+  --primary: #163b5c;
+  --accent: #006b59;
+  --accent-strong: #007d68;
+  --accent-text: #00a98f;
+  --focus: #008f78;
+
+  /* tamanho do corte diagonal da marca (usado por clip-corner-*) */
+  --cut: 10px;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f5f6f7;
+  --surface: #ffffff;
+  --surface-2: #eceef1;
+  --line: #e3e2e6;
+  --text: #161717;
+  --text-muted: #6b6a70;
+  --primary: #0e2947;
+  --accent: #006b59;
+  --accent-strong: #005a4b;
+  --accent-text: #006b59;
+  --focus: #006b59;
+}
+
+@theme inline {
+  /* tokens semânticos: mudam com o tema */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-muted: var(--text-muted);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-text: var(--accent-text);
+  --color-focus: var(--focus);
+
+  /* cores fixas da marca (iguais nos dois temas) */
+  --color-navy: #0e2947;
+  --color-navy-deep: #081a2d;
+  --color-navy-2: #163b5c;
+  --color-green: #006b59;
+  --color-green-bright: #008f78;
+  --color-gray: #7e7d82;
+  --color-gray-light: #cecdd2;
+
+  --font-sans: ui-sans-serif, system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', Consolas, monospace;
+}
+
+/* Container padrão de todas as seções. */
+@utility shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1120px;
+  padding-inline: 1.25rem;
+}
+
+/* Canto cortado: referência discreta à lâmina. */
+@utility clip-corner-tr {
+  clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, 0 100%);
+}
+
+@utility clip-corner-br {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cut)), calc(100% - var(--cut)) 100%, 0 100%);
+}
