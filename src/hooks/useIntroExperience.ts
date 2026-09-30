@@ -5,10 +5,10 @@ import { usePrefersReducedMotion } from './usePrefersReducedMotion'
 const SEEN_KEY = 'dd:intro'
 
 /**
- * Duração da coreografia de entrada (inclui as passadas de afiação).
+ * Duração da coreografia de entrada (bainha -> saque).
  * Precisa casar com a duração das animações em src/styles/katana.css.
  */
-const ENTRANCE_MS = 3700
+const ENTRANCE_MS = 2700
 
 /** Duração da saída (painéis deslizando + fade do card), igual ao transition em katana.css. */
 const EXIT_MS = 700
@@ -45,7 +45,7 @@ function markIntroAsSeen() {
 
 /**
  * Controla a tela de entrada.
- * - roda inteira na primeira visita da sessão (~4,4s);
+ * - roda inteira na primeira visita da sessão (~3,4s);
  * - não roda para quem pediu menos movimento;
  * - sempre pode ser pulada (botão, Esc ou clique no fundo).
  */

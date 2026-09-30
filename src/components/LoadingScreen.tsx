@@ -8,8 +8,8 @@ interface LoadingScreenProps {
 }
 
 /**
- * Tela de entrada: uma katana atravessa o fundo do card e a pedra de amolar
- * passa pelo fio (5 passadas). No fim, o corte abre a página.
+ * Tela de entrada: a katana aparece na bainha, sai só um pouco no começo e, no
+ * fim, é sacada por inteiro e corta a tela (os dois painéis se abrem).
  * A animação é toda CSS (styles/katana.css) — este componente só desenha.
  */
 export function LoadingScreen({ isLeaving, onSkip }: LoadingScreenProps) {
@@ -25,36 +25,40 @@ export function LoadingScreen({ isLeaving, onSkip }: LoadingScreenProps) {
       </p>
 
       <div className="katana-card">
-        {/* Fundo do card: a katana e, por cima dela, a pedra de amolar deslizando no fio. */}
-        <div className="katana-track" aria-hidden="true">
-          <svg className="katana-blade" viewBox="0 0 400 60" focusable="false">
-            {/* lâmina */}
-            <path d="M300 26.4 L20 26.4 L8 30 L300 33.6 Z" fill="#CECDD2" opacity="0.92" />
-            {/* fio (hamon) */}
-            <path d="M296 31.8 L22 31.8" stroke="#008F78" strokeWidth="1" opacity="0.95" />
-            {/* tsuba (guarda) */}
-            <rect x="298" y="19.5" width="5" height="21" rx="1.6" fill="#CECDD2" opacity="0.85" />
-            {/* tsuka (cabo) */}
-            <rect
-              x="303"
-              y="25.2"
-              width="90"
-              height="9.6"
-              rx="4.8"
-              fill="#163B5C"
-              stroke="#7E7D82"
-              strokeWidth="0.6"
-            />
-            <path
-              d="M310 25.4 L316 34.6 M320 25.4 L326 34.6 M330 25.4 L336 34.6 M340 25.4 L346 34.6 M350 25.4 L356 34.6 M360 25.4 L366 34.6 M370 25.4 L376 34.6 M380 25.4 L386 34.6"
-              stroke="#7E7D82"
-              strokeWidth="0.7"
-              opacity="0.55"
-            />
-          </svg>
+        {/* Fundo do card: a katana dentro da bainha, pronta para ser sacada. */}
+        <div className="katana-scene" aria-hidden="true">
+          {/* A espada inteira (lâmina + guarda + cabo) desliza para a direita. */}
+          <div className="katana-sword">
+            <svg className="katana-sword-svg" viewBox="0 0 400 60" focusable="false">
+              {/* lâmina */}
+              <path d="M272 26.4 L20 26.4 L8 30 L272 33.6 Z" fill="#CECDD2" opacity="0.95" />
+              {/* fio (hamon) */}
+              <path d="M268 31.8 L22 31.8" stroke="#008F78" strokeWidth="1" opacity="0.95" />
+              {/* tsuba (guarda) */}
+              <rect x="272" y="19.5" width="6" height="21" rx="1.8" fill="#CECDD2" opacity="0.9" />
+              {/* tsuka (cabo) */}
+              <rect
+                x="278"
+                y="25.2"
+                width="74"
+                height="9.6"
+                rx="4.8"
+                fill="#163B5C"
+                stroke="#7E7D82"
+                strokeWidth="0.6"
+              />
+              <path
+                d="M284 25.4 L290 34.6 M294 25.4 L300 34.6 M304 25.4 L310 34.6 M314 25.4 L320 34.6 M324 25.4 L330 34.6 M334 25.4 L340 34.6"
+                stroke="#7E7D82"
+                strokeWidth="0.7"
+                opacity="0.6"
+              />
+            </svg>
+          </div>
 
-          <span className="katana-stone" />
-          <span className="katana-spark" />
+          {/* A bainha fica POR CIMA da lâmina: só aparece o que sai dela. */}
+          <div className="katana-saya" />
+          <span className="katana-mouth" />
         </div>
 
         <div className="katana-card-content">
