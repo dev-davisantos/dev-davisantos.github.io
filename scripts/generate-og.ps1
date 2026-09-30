@@ -24,7 +24,7 @@ $height = 630
 $brand = 'dev.davisantos'
 $name = 'Davi Santos'
 $role = 'Software Engineering / Software Development'
-$stack = 'React | TypeScript | APIs REST'
+$stack = 'Java | Spring Boot | React | TypeScript'
 $codename = 'codename: razor'
 
 $navyDeep = Get-Color '#081A2D'
