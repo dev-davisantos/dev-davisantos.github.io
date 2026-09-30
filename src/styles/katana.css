@@ -1,8 +1,9 @@
 /*
- * Assinatura "razor": intro de entrada com uma katana sendo afiada atrás do card.
+ * Assinatura "razor": intro de entrada com uma katana no fundo do card e uma
+ * pedra de amolar passando pelo fio.
  *
- * Como funciona: cada elemento tem UM keyframe de 1200ms (mesma duração, então tudo
- * fica em sincronia sem precisar de delays encadeados). A saída é disparada pelo
+ * Como funciona: cada elemento tem UM keyframe de 3700ms (mesma duração, então
+ * tudo fica em sincronia sem delays encadeados) e a saída é disparada pelo
  * atributo data-leaving="true", colocado pelo hook useIntroExperience.
  *
  * Só transform/opacity/clip-path animam — nada que force layout a cada quadro.
@@ -27,7 +28,7 @@ html.is-intro {
   position: absolute;
   inset: 0;
   background: var(--color-navy-deep);
-  transition: transform 420ms cubic-bezier(0.7, 0, 0.84, 0) 100ms;
+  transition: transform 500ms cubic-bezier(0.7, 0, 0.84, 0) 120ms;
 }
 
 .katana-panel--top {
@@ -67,39 +68,127 @@ html.is-intro {
 }
 
 [data-leaving='true'] .katana-cut {
-  animation: katana-cut-flash 300ms ease-out forwards;
+  animation: katana-cut-flash 320ms ease-out forwards;
 }
 
-.katana-stage {
-  position: relative;
-  width: min(88vw, 420px);
-  transition: opacity 140ms linear;
-}
-
-[data-leaving='true'] .katana-stage {
-  opacity: 0;
-}
+/* ------------------------------------------------------------------ card */
 
 .katana-card {
   position: relative;
   z-index: 2;
-  padding: 2.25rem 1.5rem;
+  width: min(90vw, 440px);
+  min-height: 260px;
+  overflow: hidden;
   border: 1px solid rgb(206 205 210 / 14%);
   background: var(--color-navy);
-  color: var(--color-gray-light);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  animation: katana-card-in 3700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: opacity 160ms linear;
+}
+
+[data-leaving='true'] .katana-card {
+  opacity: 0;
+}
+
+/* Katana de fundo: um trilho inclinado dentro do card. */
+.katana-track {
+  position: absolute;
+  top: 44%;
+  right: -6%;
+  left: -6%;
+  height: 62%;
+  transform: rotate(-14deg);
+}
+
+.katana-blade {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform: translateY(-50%);
+  opacity: 0.9;
+}
+
+/*
+ * A pedra e o brilho do fio são trilhos de largura total (height: 0): o desenho
+ * visível é o ::after. Assim o translateX em % acompanha a largura do card em
+ * qualquer tela, sem número mágico em pixel.
+ */
+.katana-stone,
+.katana-spark {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 0;
+  animation: katana-travel 3700ms linear both;
+}
+
+.katana-stone::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 74px;
+  height: 19px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #9a99a0 0%, #4b4a51 45%, #163b5c 100%);
+  box-shadow: inset 0 1px 0 rgb(206 205 210 / 45%);
+}
+
+.katana-spark {
+  animation:
+    katana-travel 3700ms linear both,
+    katana-spark-pulse 3700ms linear both;
+}
+
+.katana-spark::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -20px;
+  width: 114px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-green-bright) 46%,
+    #eafff9 50%,
+    var(--color-green-bright) 54%,
+    transparent
+  );
+}
+
+/* Texto do card, acima da katana e com um véu para garantir leitura. */
+.katana-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem 0;
   text-align: center;
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-  animation: katana-card-in 1200ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: katana-fade-in 3700ms linear both;
+}
+
+.katana-card-content::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -1rem -1.5rem -2rem;
+  background: linear-gradient(180deg, var(--color-navy) 58%, rgb(14 41 71 / 0%));
 }
 
 .katana-brand {
   font-family: var(--font-mono);
   font-size: 0.9375rem;
   letter-spacing: 0.02em;
+  color: var(--color-gray-light);
 }
 
 .katana-loading {
-  margin-top: 0.75rem;
+  margin-top: 0.65rem;
   font-size: 0.75rem;
   color: var(--color-gray);
 }
@@ -113,40 +202,17 @@ html.is-intro {
   text-transform: uppercase;
 }
 
-/* A lâmina fica ATRÁS do card (z-index menor). Como o card tem fundo sólido,
-   a parte de cima da lâmina some atrás dele — sobra só o que passa da borda. */
-.katana-blade {
-  position: absolute;
-  bottom: -6px;
-  left: 4%;
-  z-index: 1;
-  width: 92%;
-  height: auto;
-  animation: katana-sharpen 1200ms linear both;
-}
-
-.katana-stone {
-  position: absolute;
-  bottom: -14px;
-  left: 0;
-  z-index: 0;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgb(0 143 120 / 55%), transparent);
-  animation: katana-stone-glow 1200ms linear both;
-}
-
+/* Brilho final na base do card, no instante do corte. */
 .katana-edge {
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: 0;
   z-index: 3;
   width: 100%;
   height: 2px;
-  transform: translateX(-50%);
   background: linear-gradient(90deg, transparent, var(--color-green-bright), #ffffff);
   opacity: 0;
-  animation: katana-edge-flash 1200ms linear both;
+  animation: katana-edge-flash 3700ms linear both;
 }
 
 .katana-skip {
@@ -163,7 +229,7 @@ html.is-intro {
   transition:
     color 150ms ease-out,
     border-color 150ms ease-out;
-  animation: katana-fade-in 1200ms linear both;
+  animation: katana-fade-in 3700ms linear both;
 }
 
 .katana-skip:hover {
@@ -171,92 +237,117 @@ html.is-intro {
   color: #ffffff;
 }
 
+/* ------------------------------------------------------------- keyframes */
+
 @keyframes katana-card-in {
   0% {
-    opacity: 0;
-    transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 12px, 0) scale(0.985);
   }
 
-  10%,
+  12%,
   100% {
-    opacity: 1;
     transform: none;
   }
 }
 
 @keyframes katana-fade-in {
   0%,
-  8% {
+  6% {
     opacity: 0;
   }
 
-  16%,
+  14%,
   100% {
     opacity: 1;
   }
 }
 
-/* Três passadas de afiação, com pausa entre elas. */
-@keyframes katana-sharpen {
+/* Cinco passadas da pedra pelo fio, com recuo entre elas. */
+@keyframes katana-travel {
   0%,
-  14% {
-    transform: translate3d(-8%, 5px, 0) rotate(-2.5deg);
+  12% {
+    transform: translateX(4%);
   }
 
-  32%,
-  38% {
-    transform: translate3d(9%, -3px, 0) rotate(-2.5deg);
+  20%,
+  26% {
+    transform: translateX(64%);
   }
 
-  56%,
-  62% {
-    transform: translate3d(-8%, 5px, 0) rotate(-2.5deg);
+  34%,
+  40% {
+    transform: translateX(4%);
   }
 
-  80%,
+  48%,
+  54% {
+    transform: translateX(64%);
+  }
+
+  62%,
+  68% {
+    transform: translateX(4%);
+  }
+
+  76%,
+  82% {
+    transform: translateX(64%);
+  }
+
   100% {
-    transform: translate3d(9%, -3px, 0) rotate(-2.5deg);
+    transform: translateX(4%);
   }
 }
 
-@keyframes katana-stone-glow {
+@keyframes katana-spark-pulse {
   0%,
-  10% {
-    opacity: 0.2;
+  12% {
+    opacity: 0;
   }
 
-  30%,
+  20%,
+  26% {
+    opacity: 0.9;
+  }
+
+  34%,
+  40% {
+    opacity: 0;
+  }
+
+  48%,
   54% {
-    opacity: 0.85;
+    opacity: 0.9;
   }
 
-  36%,
-  60% {
-    opacity: 0.3;
+  62%,
+  68% {
+    opacity: 0;
   }
 
-  78% {
-    opacity: 0.95;
+  76%,
+  82% {
+    opacity: 1;
   }
 
-  86%,
+  90%,
   100% {
-    opacity: 0.25;
+    opacity: 0;
   }
 }
 
 @keyframes katana-edge-flash {
   0%,
-  76% {
+  84% {
     opacity: 0;
   }
 
-  82% {
+  89% {
     opacity: 1;
   }
 
-  92% {
-    opacity: 0.15;
+  96% {
+    opacity: 0.2;
   }
 
   100% {
@@ -279,11 +370,10 @@ html.is-intro {
 }
 
 /* Com movimento reduzido o overlay nem aparece (o hook cuida disso), mas se
-   aparecer, a lâmina fica parada. */
+   aparecer, a katana fica parada. */
 @media (prefers-reduced-motion: reduce) {
-  .katana-blade,
   .katana-stone,
-  .katana-edge {
+  .katana-spark {
     animation: none;
   }
 }

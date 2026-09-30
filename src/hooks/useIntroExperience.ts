@@ -4,11 +4,11 @@ import { usePrefersReducedMotion } from './usePrefersReducedMotion'
 /** Marca na sessão: a intro completa roda só na primeira entrada. */
 const SEEN_KEY = 'dd:intro'
 
-/** Duração da coreografia de entrada. Precisa bater com os keyframes de styles/katana.css. */
-const ENTRANCE_MS = 1200
+/** Duração da coreografia de entrada (inclui as passadas de afiação). */
+const ENTRANCE_MS = 3700
 
 /** Duração da saída (painéis deslizando + fade do card). */
-const EXIT_MS = 550
+const EXIT_MS = 700
 
 type IntroState = 'showing' | 'leaving' | 'done'
 
@@ -42,9 +42,9 @@ function markIntroAsSeen() {
 
 /**
  * Controla a tela de entrada.
- * - roda inteira na primeira visita da sessão;
+ * - roda inteira na primeira visita da sessão (~4,4s);
  * - não roda para quem pediu menos movimento;
- * - sempre pode ser pulada.
+ * - sempre pode ser pulada (botão, Esc ou clique no fundo).
  */
 export function useIntroExperience(): IntroExperience {
   const prefersReducedMotion = usePrefersReducedMotion()
