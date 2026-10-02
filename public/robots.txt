@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-# Quando o domínio for definido, descomente a linha abaixo trocando pela URL real
-# e crie o arquivo public/sitemap.xml (só vale a pena com domínio de verdade):
-# Sitemap: https://SEU-DOMINIO/sitemap.xml
+Sitemap: https://dev-davisantos.github.io/sitemap.xml

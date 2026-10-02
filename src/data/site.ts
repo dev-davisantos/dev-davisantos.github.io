@@ -6,7 +6,7 @@
  * og:url e gerar o sitemap.xml.
  */
 export const site = {
-  url: '',
+  url: 'https://dev-davisantos.github.io',
   name: 'dev.davisantos',
   title: 'dev.davisantos — Davi Santos | Software Engineering',
   description:
