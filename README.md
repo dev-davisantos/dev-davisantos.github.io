@@ -1,152 +1,101 @@
 # dev.davisantos — site pessoal
 
-Site profissional de **Davi Santos / dev.davisantos**: apresentação, projetos e contato.
-Stack: React 19 + TypeScript (Vite), Tailwind CSS v4, React Router e Lucide.
+> Site pessoal de **Davi Santos** — desenvolvedor full-stack de São Paulo-SP.
+> Apresentação, projetos e contato em um só lugar.
 
-## Rodando o projeto
+**[Visitar o site →](https://dev-davisantos.github.io)** · **[Falar comigo](mailto:davisantosdev228@gmail.com)** · **[LinkedIn](https://www.linkedin.com/in/dev-davisantos)** · **[GitHub](https://github.com/dev-davisantos)**
 
-```bash
-npm install
-npm run dev        # desenvolvimento (http://localhost:5173)
-npm run build      # build de produção (roda o tsc antes do vite)
-npm run preview    # serve o build localmente
-npm run lint       # eslint
-npm run og         # regenera a imagem de compartilhamento (public/og-image.png)
-```
+![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
 
-## Onde fica cada coisa
+---
 
-| Quero mudar... | Arquivo |
+## Sobre
+
+Eu construo **sistemas completos** — da parte que ninguém vê (onde as informações ficam
+guardadas e onde as regras de negócio são aplicadas) até a parte que todo mundo vê (as telas
+que a sua equipe usa todos os dias).
+
+Isso deixa o caminho mais curto: você trata com **uma pessoa só**, do começo ao fim, sem
+precisar coordenar equipes diferentes para o sistema funcionar. Entrego algo que dá para
+manter depois: organizado, com explicação de como usar e pronto para crescer quando o seu
+negócio mudar.
+
+- 📍 **Local:** São Paulo — SP
+- 🛠️ **Base:** Java e Spring Boot para as APIs, regras de negócio e banco de dados;
+  React e TypeScript para as telas que consomem tudo isso.
+
+## O que você encontra no site
+
+| Seção | O que é |
 | --- | --- |
-| Nome, cargo, textos do hero e do "sobre", e-mail e links | `src/data/profile.ts` |
-| Projetos (adicionar, editar, destacar na home) | `src/data/projects.ts` |
-| Serviços | `src/data/services.ts` |
-| Tecnologias | `src/data/technologies.ts` |
-| "Como eu trabalho" | `src/data/process.ts` |
-| Título, descrição do site e URL do domínio | `src/data/site.ts` |
-| Cores e temas (escuro/claro) | `src/styles/tailwind.css` |
-| Intro da katana | `src/styles/katana.css` + `src/hooks/useIntroExperience.ts` |
-| Texto de cada seção da home | `src/pages/Home/<NomeDaSecao>.tsx` |
-| Rotas | `src/routes/AppRoutes.tsx` |
-| Navbar e rodapé | `src/components/Navbar.tsx` e `Footer.tsx` |
-| Imagem de compartilhamento | `scripts/generate-og.ps1` (rode `npm run og`) |
+| **Projetos** | Sistemas que já construí, com descrição, tecnologias usadas e link do código |
+| **Serviços** | O que eu faço: APIs, sistemas de gestão, segurança e telas |
+| **Como eu trabalho** | Meu processo, do entendimento do problema até a entrega |
+| **Contato** | Formulário, e-mail, LinkedIn e GitHub |
 
-## Adicionar um projeto
+## Projetos em destaque
 
-Copie um bloco de `src/data/projects.ts` e ajuste os campos:
+| Projeto | O que é | Situação |
+| --- | --- | --- |
+| [**Arena — Challenges Manager**](https://github.com/dev-davisantos/arena-challenge-manager) | Sistema que organiza gincanas em equipes e os desafios de cada uma | 🚧 Em desenvolvimento |
+| [**Order Manager API**](https://github.com/dev-davisantos/order-manager) | Gestão de pedidos e produtos para pequenos estabelecimentos | 🔄 Em evolução |
+| [**TaskVault API**](https://github.com/dev-davisantos/task-vault-api) | API de tarefas com login e permissões por perfil de usuário | ✅ Concluído |
 
-```ts
-{
-  slug: 'meu-projeto',
-  name: 'Meu Projeto',
-  summary: 'Uma linha, aparece no card da home.',
-  description: 'Texto mais completo, aparece em /projects.',
-  technologies: ['React', 'TypeScript'],
-  status: 'em-desenvolvimento', // 'em-desenvolvimento' | 'concluido' | 'evoluindo'
-  category: 'api',              // 'sistema' | 'api' | 'estudo'
-  featured: false,              // true = aparece na home também
-  year: 2026,
-  githubUrl: 'https://github.com/dev-davisantos/meu-projeto',
-}
-```
+## Serviços
 
-Campos opcionais: `demoUrl` (link da demo), `note` (observação honesta, tipo roadmap),
-`image` (print real do projeto).
+- **APIs REST em Java e Spring Boot** — cadastros, pedidos, usuários e autenticação, com
+  documentação dos endpoints.
+- **Sistemas de gestão, do banco à tela** — modelagem de dados, backend e as telas de uso
+  (pedidos, chamados, cadastros e permissões por perfil).
+- **Autenticação e segurança de API** — login com JWT, papéis e autorização por endpoint:
+  cada parte do sistema acessa exatamente o que deve.
+- **Telas que consomem API (React e TypeScript)** — listagens, filtros, formulários e o
+  tratamento de carregando, vazio e erro.
+- **Manutenção e evolução de sistemas** — corrigir regra, adicionar campo, ajustar tela:
+  mudança pontual, sem reescrever o que funciona.
 
-## Adicionar um print de projeto
+## Tecnologias
 
-Sem o campo `image`, o card usa uma capa gerada (monograma + geometria, nada de imagem
-inventada). Para usar um print de verdade:
+| Área | Ferramentas |
+| --- | --- |
+| **Backend** — a parte que processa e guarda | Java, Spring Boot, Spring Web, Spring Data JPA, Spring Security, Hibernate, Lombok, MapStruct, SpringDoc OpenAPI |
+| **Front-end** — as telas | React, TypeScript, Vite, Tailwind CSS, Angular, HTML, CSS |
+| **Dados** — onde a informação fica | PostgreSQL, MySQL, H2, SQL |
+| **Ferramentas** — o dia a dia | Maven, Node.js, JWT, Git, Postman, IntelliJ IDEA, VS Code |
 
-1. Salve o arquivo em `src/assets/projects/meu-projeto.png`.
-2. Importe e passe no campo `image`:
+Sempre aprendendo algo novo: hoje é **Docker**; a seguir, **Kafka**, **RabbitMQ** e **AWS**.
 
-```ts
-import meuProjeto from '../assets/projects/meu-projeto.png'
-// ...
-image: meuProjeto,
-```
+## Como eu trabalho
 
-## Tema
+1. **Entender o problema inteiro** — antes de escolher ferramenta: o que o sistema precisa
+   fazer, quem usa, que dado entra e que dado sai.
+2. **Modelar antes de codar** — domínio e banco primeiro; contrato da API em seguida; telas
+   por último. Isso evita retrabalho nas duas pontas.
+3. **Construir em camadas** — regra de negócio na entidade, service orquestrando, controller
+   expondo. Cada parte com responsabilidade única.
+4. **Testar o caminho real** — fluxo completo do banco à tela, com dado ruim, texto longo,
+   resposta lenta e erro tratado.
+5. **Entregar de um jeito que o próximo entenda** — projeto organizado, README dizendo como
+   rodar e histórico de commits descritivo.
 
-- O padrão é **escuro**. O claro é escolha do usuário (botão na navbar) e fica salvo no `localStorage`.
-- O tema vive em `<html data-theme="light|dark">`. Um script inline no `index.html` roda antes do
-  CSS para não piscar a cor errada no primeiro paint.
-- Os tokens semânticos (`--bg`, `--surface`, `--text`, `--accent`...) ficam em `src/styles/tailwind.css`.
-  As classes (`bg-surface`, `text-muted`, `border-line`...) mudam junto com o tema — por isso quase
-  não se usa `dark:` no JSX.
+## Cuidados com quem usa
 
-## Intro (tela de carregamento)
+- Funciona bem com **teclado** (navegação sem mouse) e leitores de tela.
+- As animações respeitam a preferência do sistema por **menos movimento**.
+- Tema **escuro** (padrão) e **claro**, com a escolha salva no navegador.
+- Tela de abertura (**intro**) com katana: dura ~3,4s e pode ser pulada a qualquer momento.
+- Alvos de toque grandes e foco sempre visível.
 
-- Roda na primeira entrada da sessão (`sessionStorage`), dura ~3,4s (a katana aparece na bainha,
-  sai só um pouco do começo, e no fim é sacada por inteiro e corta a tela) e pode ser pulada com o
-  botão **Pular**, com **Esc** ou clicando fora do card.
-- Quem usa `prefers-reduced-motion` não vê animação: o conteúdo aparece direto.
-- Tempos em `src/hooks/useIntroExperience.ts`; coreografia (katana afiando e corte) em
-  `src/styles/katana.css`. Toda a animação é CSS puro — não há biblioteca de animação no projeto.
-- O conteúdo real é renderizado **atrás** do overlay, então o carregamento do site não é bloqueado.
+## Contato
 
-## Acessibilidade
+- 📧 **E-mail:** [davisantosdev228@gmail.com](mailto:davisantosdev228@gmail.com)
+- 💼 **LinkedIn:** [linkedin.com/in/dev-davisantos](https://www.linkedin.com/in/dev-davisantos)
+- 🐙 **GitHub:** [github.com/dev-davisantos](https://github.com/dev-davisantos)
+- 🌐 **Site:** [dev-davisantos.github.io](https://dev-davisantos.github.io)
 
-- Link "ir para o conteúdo", foco sempre visível, `aria-current` na navegação ativa.
-- SVG decorativos com `aria-hidden`; `alt` nas imagens; status do projeto em texto (não só cor).
-- Alvos de toque de 40px na navbar e no rodapé.
-- Enquanto a intro está na tela, o conteúdo fica com `inert` (não dá para focar o que está atrás).
-- Todas as animações respeitam `prefers-reduced-motion`.
+## Licença
 
-## SEO
-
-- Meta tags base e Open Graph em `index.html`; título e descrição por rota via `usePageMeta`.
-- **Quando o domínio for definido:**
-  1. preencher `site.url` em `src/data/site.ts` (habilita `og:url` por rota);
-  2. trocar `og:image` por URL absoluta no `index.html` (a imagem é `public/og-image.png`);
-  3. criar `public/sitemap.xml` e liberar a linha do sitemap em `public/robots.txt`.
-- Observação: como é uma SPA, o HTML servido é o mesmo para todas as rotas. Google executa o JS,
-  mas pré-visualizações de link (WhatsApp/LinkedIn) das rotas internas usam as metas base.
-  Se quiser metas específicas por rota em crawlers, o próximo passo é pré-renderizar no build.
-
-## Deploy
-
-O site é estático: o `dist/` gerado por `npm run build` é o que vai para o ar.
-Nada de configuração de host versionada aqui — quando decidir o host:
-
-- **Netlify:** build `npm run build`, publish `dist` e um redirect do SPA — arquivo `netlify.toml`:
-
-  ```toml
-  [[redirects]]
-    from = "/*"
-    to = "/index.html"
-    status = 200
-  ```
-
-- **GitHub Pages:** dois ajustes por causa do subdiretório:
-  1. `base: '/nome-do-repo/'` em `vite.config.ts`;
-  2. `<BrowserRouter basename="/nome-do-repo">` em `src/routes/AppRoutes.tsx`;
-  3. copiar `dist/index.html` para `dist/404.html` durante o deploy (fallback das rotas).
-
-## Commits
-
-Conventional Commits: tipo e escopo em inglês, descrição curta no imperativo.
-
-```
-feat(home): add stack section
-fix(theme): keep dark as default after reload
-docs: explain how to add a project
-```
-
-## Estrutura
-
-```
-src/
-├── assets/       avatar e imagens
-├── components/   componentes reutilizáveis (Navbar, Footer, ProjectCard, LoadingScreen...)
-├── context/      tema (ThemeProvider + contexto)
-├── data/         TODO o conteúdo editável
-├── hooks/        useTheme, usePageMeta, useScrollToTop, useIntroExperience...
-├── layouts/      MainLayout (navbar + conteúdo + rodapé)
-├── models/       tipos dos dados (Project, Service, Technology, ProcessStep, Profile)
-├── pages/        Home (uma seção por arquivo), Projects, Contact, NotFound
-├── routes/       AppRoutes (todas as rotas em um arquivo)
-└── styles/       tailwind.css (tokens), base.css, katana.css (intro)
-```
-
+Este projeto está sob a licença **MIT** — veja o arquivo [LICENSE](LICENSE) para detalhes.
