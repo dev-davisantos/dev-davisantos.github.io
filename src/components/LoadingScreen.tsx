@@ -31,11 +31,25 @@ export function LoadingScreen({ isLeaving, onSkip }: LoadingScreenProps) {
           <div className="katana-sword">
             <svg className="katana-sword-svg" viewBox="0 0 400 60" focusable="false">
               {/* lâmina */}
-              <path d="M272 26.4 L20 26.4 L8 30 L272 33.6 Z" fill="#CECDD2" opacity="0.95" />
+              <path
+                className="katana-steel"
+                d="M272 26.4 L20 26.4 L8 30 L272 33.6 Z"
+                fill="#CECDD2"
+                opacity="0.95"
+              />
               {/* fio (hamon) */}
               <path d="M268 31.8 L22 31.8" stroke="#008F78" strokeWidth="1" opacity="0.95" />
               {/* tsuba (guarda) */}
-              <rect x="272" y="19.5" width="6" height="21" rx="1.8" fill="#CECDD2" opacity="0.9" />
+              <rect
+                className="katana-steel"
+                x="272"
+                y="19.5"
+                width="6"
+                height="21"
+                rx="1.8"
+                fill="#CECDD2"
+                opacity="0.9"
+              />
               {/* tsuka (cabo) */}
               <rect
                 x="278"

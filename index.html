@@ -35,6 +35,9 @@
           var saved = localStorage.getItem('dd:theme')
           if (saved === 'light' || saved === 'dark') {
             document.documentElement.dataset.theme = saved
+            // Chrome do browser acompanha o tema (senão fica navy na tela light).
+            var meta = document.querySelector('meta[name="theme-color"]')
+            if (meta) meta.content = saved === 'light' ? '#EEEFF1' : '#081A2D'
           }
         } catch (error) {
           /* localStorage bloqueado: mantém o dark padrão */
@@ -44,9 +47,11 @@
     <style>
       /* Evita fundo branco antes do bundle de CSS chegar. */
       html[data-theme='dark'] {
+        color-scheme: dark;
         background: #081a2d;
       }
       html[data-theme='light'] {
+        color-scheme: light;
         background: #eeeff1;
       }
     </style>
