@@ -30,7 +30,9 @@ export function Reveal({ children, delay = 0 }: RevealProps) {
           }
         }
       },
-      { rootMargin: '0px 0px -10% 0px' },
+      /* Margem positiva: o elemento começa a animar antes de entrar na tela,
+         para o pico de trabalho não acontecer durante a rolagem do hero. */
+      { rootMargin: '0px 0px 20% 0px' },
     )
 
     observer.observe(element)

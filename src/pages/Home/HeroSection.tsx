@@ -13,8 +13,10 @@ export function HeroSection() {
     <section className="relative overflow-hidden border-b border-line">
       {/* Linhas de lâmina ao fundo: assinatura discreta da marca. */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute -inset-x-10 top-[34%] h-px -rotate-12 bg-linear-to-r from-transparent via-green-bright/25 to-transparent" />
-        <div className="absolute -inset-x-10 top-[58%] h-px -rotate-12 bg-linear-to-r from-transparent via-gray-light/12 to-transparent" />
+        {/* will-change: as linhas ficam na própria camada e a rolagem só as
+            translada — evita re-rasterização por quadro (shimmer/flicker). */}
+        <div className="absolute -inset-x-10 top-[34%] h-px -rotate-12 bg-linear-to-r from-transparent via-green-bright/25 to-transparent [will-change:transform]" />
+        <div className="absolute -inset-x-10 top-[58%] h-px -rotate-12 bg-linear-to-r from-transparent via-gray-light/12 to-transparent [will-change:transform]" />
       </div>
 
       <div className="shell relative grid gap-12 py-16 sm:py-24 lg:grid-cols-[1.5fr_1fr] lg:items-center">

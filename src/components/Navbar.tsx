@@ -17,8 +17,10 @@ export function Navbar() {
     setIsMenuOpen(false)
   }
 
+  /* Fundo sólido (sem backdrop-blur): o blur re-rasterizava a faixa atrás da
+     barra a cada quadro de rolagem e derrubava FPS — sobretudo sobre o hero. */
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bg/85 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-line bg-bg">
       <div className="shell flex h-16 items-center justify-between gap-4">
         <Link to="/" onClick={closeMenu} className="flex items-center gap-3">
           <img
